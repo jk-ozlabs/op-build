@@ -76,6 +76,11 @@ define PETITBOOT_POST_INSTALL_DTB
 		$(TARGET_DIR)/etc/petitboot/boot.d/
 endef
 
+define PETITBOOT_PERMISSIONS
+	/var/log/petitboot d 775 root petitgroup - - - - -
+	/var/petitboot d 775 root petitgroup - - - - -
+endef
+
 PETITBOOT_POST_INSTALL_TARGET_HOOKS += PETITBOOT_POST_INSTALL
 
 ifeq ($(BR2_PACKAGE_DTC),y)
