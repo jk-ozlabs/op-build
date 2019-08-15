@@ -67,6 +67,8 @@ define PETITBOOT_POST_INSTALL
 		$(TARGET_DIR)/home/petituser/.profile
 	$(INSTALL) -D -m 0755 $(BR2_EXTERNAL_OP_BUILD_PATH)/package/petitboot/shell_config \
 		$(TARGET_DIR)/home/petituser/.shrc
+	$(INSTALL) -D -m 0644 $(BR2_EXTERNAL_OP_BUILD_PATH)/package/petitboot/petitboot-plugins-path.sh \
+		$(TARGET_DIR)/etc/profile.d/petitboot-plugins-path.sh
 
 	$(MAKE) -C $(@D)/po DESTDIR=$(TARGET_DIR) install
 endef
